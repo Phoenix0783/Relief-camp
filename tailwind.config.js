@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./Footer/*.html'],
+  content: ['./Public/*.html'],
   theme: {
     extend: {},
     fontFamily: {

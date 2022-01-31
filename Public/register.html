@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #sub-btn {background-color:#05386B; color:#FFEEED;}
+    #sub-btn:hover {background-color:#5CDB95; color:#05386B;}
+    #link {color:#05386B}
+    #link:hover {color:#5CDB95}
+    #ggl-btn:hover {border-color: #202020; background-color: #58d8ff33;}
+    .fa-google {
+        background: linear-gradient(to bottom left,transparent 49%,#fbbc05 50%) 0 25%/48% 40%,
+                    linear-gradient(to top    left,transparent 49%,#fbbc05 50%) 0 75%/48% 40%,
+                    linear-gradient(-40deg ,transparent 53%,#ea4335 54%),
+                    linear-gradient( 45deg ,transparent 46%,#4285f4 48%),#34a853;
+                    background-repeat:no-repeat;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                }
+  </style>
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+</head>
+<body>
+    <div class="grid grid-1 lg:grid-cols-2">
+        <div class="bg-no-repeat bg-cover" style="background-image: url(https://cdn.pixabay.com/photo/2018/12/24/22/19/camping-3893587_960_720.jpg);">
+        </div>
+
+        <div class="min-h-screen flex flex-col">
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="px-6 py-8 rounded w-full">
+                    <h3 class="mb-8 text-3xl font-poppins text-center" style="color: #202020;">Sign up</h3>
+                    <div class="text-center">
+                        <button id="ggl-btn" class="w-full font-poppins bg-transparent py-2 px-4 border border-gray-500 rounded transition duration-150 ease-in-out" style="color: #202020;">
+                            <i class="fab fa-google mr-2"></i>
+                            Continue with Google
+                        </button>
+                    </div>
+                    <div>
+                        <p class="font-merriweather text-sm text-center my-4" style="color: #535353">
+                            Or
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-merriweather text-xs text-center mb-2" style="color: #535353;">
+                            Sign Up using Email
+                        </p>
+                    </div>
+                    <input 
+                        type="text"
+                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                        name="username"
+                        placeholder="User Name" style="color: #535353;" />
+                    <input 
+                        type="text"
+                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                        name="email"
+                        placeholder="Email" style="color: #535353;"/>
+                    <input 
+                        type="password"
+                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                        name="password"
+                        placeholder="Password" style="color: #535353;"/>
+                    <input 
+                        type="password"
+                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                        name="confirm_password"
+                        placeholder="Confirm Password" style="color: #535353;"/>
+                    <button
+                        type="submit"
+                        id="sub-btn"
+                        class="w-full text-center font-poppins py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 transition duration-150 ease-in-out">Create Account</button>
+    
+                    <div class="text-center font-merriweather text-xs text-grey-dark mt-3" style="color: #535353;">
+                        By signing up, you agree to the 
+                        <a class="underline font-merriweather text-grey-dark transition duration-150 ease-in-out" href="#" id="link">
+                            Terms of Service
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="text-grey-dark text-sm font-merriweather mt-6" style="color: #535353;">
+                    Already have an account? 
+                    <a class="underline text-base font-merriweatherborder-blue text-blue transition duration-150 ease-in-out" id="link">
+                        Log in
+                    </a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
