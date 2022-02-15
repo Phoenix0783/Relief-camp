@@ -2,12 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    #sub-btn {background-color:#05386B; color:#FFEEED;}
-    #sub-btn:hover {background-color:#5CDB95; color:#05386B;}
-    #link {color:#05386B}
-    #link:hover {color:#5CDB95}
+    #sub-btn {background-color: #004e64; color:#FFFFFF;}
+    #sub-btn:hover {background-color:#00a5cf; color:#004e64;}
+    #link {color:#004e64}
+    #link:hover {color:#00a5cf}
     #ggl-btn:hover {border-color: #202020; background-color: #58d8ff33;}
     .fa-google {
         background: linear-gradient(to bottom left,transparent 49%,#fbbc05 50%) 0 25%/48% 40%,
@@ -29,9 +30,10 @@
     <div class="grid grid-1 lg:grid-cols-2">
         <div class="bg-no-repeat bg-cover" style="background-image: url(https://cdn.pixabay.com/photo/2018/12/24/22/19/camping-3893587_960_720.jpg);">
         </div>
-
-        <div class="min-h-screen flex flex-col">
-            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <!--main div-->
+        <div class="min-h-screen flex flex-col" x-data="getData()">
+            <!--conatainer starts-->
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2" x-show.transition="!status && !isError">
                 <div class="px-6 py-8 rounded w-full">
                     <h3 class="mb-8 text-3xl font-poppins text-center" style="color: #202020;">Sign up</h3>
                     <div class="text-center">
@@ -50,31 +52,118 @@
                             Sign Up using Email
                         </p>
                     </div>
-                    <input 
-                        type="text"
-                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
-                        name="username"
-                        placeholder="User Name" style="color: #535353;" />
-                    <input 
-                        type="text"
-                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
-                        name="email"
-                        placeholder="Email" style="color: #535353;"/>
-                    <input 
-                        type="password"
-                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password" style="color: #535353;"/>
-                    <input 
-                        type="password"
-                        class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
-                        name="confirm_password"
-                        placeholder="Confirm Password" style="color: #535353;"/>
-                    <button
-                        type="submit"
-                        id="sub-btn"
-                        class="w-full text-center font-poppins py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 transition duration-150 ease-in-out">Create Account</button>
-    
+                    <!--form starts-->
+                    <form action="" method="POST" class="" @submit.prevent="submitData">
+                        <!--username field-->
+                        <input 
+                            type="text"
+                            class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                            name="username"
+                            placeholder="User Name" style="color: #535353;"/>
+                        <!--Email feild-->
+                        <input 
+                            type="text"
+                            x-model="formData.email"
+                            class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                            name="email"
+                            placeholder="Email" style="color: #535353;"/>
+                            <!--Email validation-->
+                            <div x-show="formData.email.length > 0"
+                             class="flex items-center mb-4">
+                                <div :class="{'bg-green-200 text-green-700': isEmail(formData.email),
+                                'bg-red-200 text-red-700': !isEmail(formData.email)}"
+                                class=" rounded-full fill-current " style="padding: 2px;">
+                                    <!--alert icon-->
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                        <path
+                                            x-show="isEmail(formData.email)"
+                                            stroke-linecap="round" stroke-linejoin="round" 
+                                            stroke-width="2" d="M5 13l4 4L19 7" />
+                                        <path
+                                            x-show="!isEmail(formData.email)"
+                                            stroke-linecap="round" stroke-linejoin="round" 
+                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+                                <!--alert msg-->
+                                <span :class="{'text-green-700': isEmail(formData.email), 
+                                    'text-red-700': !isEmail(formData.email)}"
+                                    class="font-medium text-sm ml-3"
+                                    x-text="isEmail(formData.email) ? 
+                                    'Email is valid' : 'Invalid Email format!' "></span>
+                             </div>
+                        <!--pass feild-->
+                        <input 
+                            type="password"
+                            x-model="formData.password"
+                            class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                            name="password"
+                            placeholder="Password" style="color: #535353;"/>
+                            <!--pass validation-->
+                            <div x-show="formData.password.length > 0"
+                                 class="flex items-center mb-4">
+                                <div :class="{'bg-green-200 text-green-700': formData.password.length > 7,
+                                'bg-red-200 text-red-700':formData.password.length < 8 }"
+                                class=" rounded-full fill-current " style="padding: 2px;">
+                                    <!--alert icon-->
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path 
+                                            x-show="formData.password.length > 7"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" d="M5 13l4 4L19 7" />
+                                        <path
+                                            x-show="formData.password.length < 8" 
+                                            stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+                                <!--alert msg-->
+                                <span :class="{'text-green-700': formData.password.length > 7, 
+                                    'text-red-700':formData.password.length < 8 }"
+                                    class="font-medium text-sm ml-3"
+                                    x-text="formData.password.length > 7 ? 
+                                    'The minimum length is reached' : 'At least 8 characters required' "></span>
+                            </div>
+                        <!--confirm pass feild-->
+                        <input 
+                            type="password"
+                            x-model="formData.password_confirm"
+                            class="block border font-merriweather border-gray-400 w-full p-3 rounded mb-4"
+                            name="confirm_password"
+                            placeholder="Confirm Password" style="color: #535353;"/>
+                            <!--confirm pass validation-->
+                            <div x-show="formData.password_confirm.length > 0" class="flex items-center mb-4">
+                                <div :class="{'bg-green-200 text-green-700': formData.password_confirm == formData.password,
+                                'bg-red-200 text-red-700':formData.password_confirm != formData.password }"
+                                class=" rounded-full fill-current " style="padding: 2px;">
+                                    <!--alert icon-->
+                                    <svg class="w-4 h-4" fill="none" 
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                        <path 
+                                            x-show="formData.password_confirm == formData.password" stroke-linecap="round"
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" d="M5 13l4 4L19 7" />
+                                        <path
+                                            x-show="formData.password_confirm != formData.password" 
+                                            stroke-linecap="round" stroke-linejoin="round" 
+                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+                                <!--alert msg-->
+                                <span :class="{'text-green-700': formData.password_confirm == formData.password, 
+                                    'text-red-700':formData.password_confirm != formData.password }"
+                                    class="font-medium text-sm ml-3"
+                                    x-text="formData.password_confirm == formData.password ? 
+                                    'Passwords match' : 'Passwords do not match' "></span>
+                            </div>
+                        <button
+                            type="submit"
+                            id="sub-btn"
+                            class="w-full text-center font-poppins py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 transition duration-150 ease-in-out">Create Account</button>
+                    </form>
                     <div class="text-center font-merriweather text-xs text-grey-dark mt-3" style="color: #535353;">
                         By signing up, you agree to the 
                         <a class="underline font-merriweather text-grey-dark transition duration-150 ease-in-out" href="#" id="link">
@@ -92,5 +181,28 @@
             </div>
         </div>
     </div>
+    <!--script to include alpine for reactive validation-->
+    <script 
+        src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer>
+    </script>
+    <!--script for taking data from form-->
+    <script>
+        function getData() {
+            return {
+                formData: {
+                    email: "",
+                    password: "",
+                    password_confirm: ""
+                },
+                status: false,
+                loading: false,
+                isError: false,
+                isEmail(email) {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+                },
+            }
+        }
+    </script>
 </body>
 </html>

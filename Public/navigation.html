@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+
+          #drop_menu {right: -400px;} /*dropdown menu*/
+          #drop_menu.active {right: 0px;}
+          #cross_icon {display: none;} /*close icon for dropdown menu*/
+          #cross_icon.active {display: block;}
+          #line_icon {display: block;} /*lined icon for dropdown menu*/
+          #line_icon.deactive {display: none;}
+          #drop_search {z-index: -10; top: -200px;  left: 50%; transform: translate(-50%, 0);} /*dropdown search setting z-index behind*/
+          #search_icon_sm.active {border: solid; border-color: white; color: #004e64; border-radius: 100%; background-color: white;}
+          #search_icon_md.active {border: solid; border-color: white; color: #004e64; border-radius: 100%; background-color: white;} /*setting round icon when clicked*/
+          #reg_log_btn:hover {background-color: #067999ec;}
+          #drop_menu li:hover {background-color:#004e64d8; color: rgb(241 245 249); transition: all ease-in-out 500ms;}
+          @media (max-width: 767px) {
+            #drop_search.active {
+              z-index: 0;  /*transtion for drop down search settion zindex to originl*/
+              top: 52px;
+            }
+          }
+          @media (max-width: 1023px) {
+            @media (min-width: 768px) {
+              #drop_search.active {z-index: 0; top: 58px;}
+            }  /*transtion for drop down search settion zindex to originl*/
+          }
+          @media (max-width: 1094px) {
+            @media (min-width: 1024px) {
+              #drop_search.active {z-index: 0; top: 66px;}
+            }  /*transtion for drop down search settion zindex to originl*/
+          }
+          @media (max-width: 767px) {
+            #search_icon_md {
+              display: none;  /*show medium search icon for only screen*/
+            }                 /*between 768 to 1094 px*/
+            #search_icon_md.active { display: none;}
+          }
+            @media (min-width: 1095px) {
+                #search_icon_md {display: none;}
+                #search_icon_md.active {display: none;}
+             }
+            @media (max-width: 767px) {
+                #nav_item {display: none;}   /*hide nav in screen < 768*/
+            }
+            @media (min-width: 768px) {
+              #drop_menu {display: none;}
+              #drop_menu.active {display: none;}    /*hide dropdown menu in screen > 767*/
+              #searchBox_lg {display: none;}    /*hide large search box for screen between 768 to 1094*/
+            }
+            @media (max-width: 768px) {
+              #searchBox_lg {display: none;}    /*hide large search for very small screens*/
+            }
+            @media (min-width: 1095px) {
+              #searchBox_lg {display: block; margin-top: 13px;}
+              #drop_search {display: none;}
+              #drop_search.active {     /*show large search box in large screens*/
+                display: none;}      /*hide dropdown search in large screens*/
+            }
+            @media (max-width: 1094px) {
+              @media (min-width: 700px) {
+                #drop_search {
+                  width: 66%;   /*setting dropdown search box screen 700 to 1094*/
+                  margin-left: auto; margin-right: auto;}
+              }
+            }
+            @media (max-width: 699px) {
+              #drop_search {width: 100%;}
+            }
+            @media (max-width: 1094px) {
+              @media (min-width: 1024px) {
+                #search_icon_md {margin-top: 18px;}
+              }
+            }
+            @media (max-width: 1023px) {
+              @media (min-width: 768px) {
+                #search_icon_md {margin-top: 15px;}
+              }
+            }
+            @media (max-width: 767px){
+              nav {padding-top: 10px; padding-bottom: 10px;}
+            }
+            #search_input_lg:focus {color: #202020;}
+            #nav_item .animation { /*underline hover effect in navigation*/
+              position: absolute;
+              height: 4px;
+              top: 62px;
+              background-color: white;
+              transition: all ease-in-out 500ms;
+            }
+            #nav_item .li_1:hover~.animation {
+              width: 88.77px; margin-left: 0px;
+            }
+            #nav_item .li_2:hover~.animation {
+              width: 67.94px; margin-left: 88.77px;
+            }
+            #nav_item .li_3:hover~.animation {
+              width: 73.92px; margin-left: 156.71px;
+            }
+            #nav_item .li_4:hover~.animation {
+              width: 64.08px; margin-left: 230.63px;
+            }
+            #nav_item .li_5:hover~.animation {
+              width: 86.55px; margin-left: 294.71px;
+            }
+            #nav_item .li_6:hover~.animation {
+              width: 92.11px; margin-left: 381.26px;
+            }
+            @media (max-width: 1023px) {
+              @media (min-width: 768px) {
+                #nav_item .animation {top: 54px;}
+                #nav_item .li_1:hover~.animation {
+                  width: 74.58px; margin-left: 0px;
+                }
+                #nav_item .li_2:hover~.animation {
+                  width: 58.95px; margin-left: 74.58px;
+                }
+                #nav_item .li_3:hover~.animation {
+                  width: 63.45px; margin-left: 133.53px;
+                }
+                #nav_item .li_4:hover~.animation {
+                  width: 56.06px; margin-left: 196.98px;
+                }
+                #nav_item .li_5:hover~.animation {
+                  width: 72.92px; margin-left: 253.04px;
+                }
+                #nav_item .li_6:hover~.animation {
+                  width: 77.08px; margin-left: 325.96px;
+                }
+              }
+            }
+        </style>
+    </head>
+    <body class="bg-no-repeate bg-cover" style="background-image: url(https://cdn.pixabay.com/photo/2018/12/24/22/19/camping-3893587_960_720.jpg);">
+      <!--navigation start-->
+        <nav class="px-5 shadow md:flex md:justify-between" style="background-color: #004e64;">
+          
+          <!--main navigation div contains logo menu and search-->
+          <div class="flex justify-between items-center">
+            <!--Logo-->
+            <span class="md:text-base lg:text-xl font-oswald cursor-pointer text-white truncate">
+              RE<f style="color: #9fffcb;">LIE</f>F CAMP
+            </span>
+            
+            <!--search icon for small screen-->
+            <svg xmlns="http://www.w3.org/2000/svg" id="search_icon_sm" class="h-7 w-7 text-white ml-auto mx-6 md:hidden block cursor-pointer p-1 transition-all ease-in-out duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+              
+            <!--menu icon for small screen-->
+            <svg xmlns="http://www.w3.org/2000/svg" id="menu_icon" class="h-7 w-7 text-white md:hidden block cursor-pointer p-1 transition-all ease-in-out duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path id="cross_icon" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <path id="line_icon" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </div>
+
+          <!--navigation bar items-->
+          <ul id="nav_item" class="flex text-white items-center">
+            <li class="li_1 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">SERVICES</a>
+            </li>
+            <li class="li_2 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">STEPS</a>
+            </li>
+            <li class="li_3 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">CAMPS</a>
+            </li>
+            <li class="li_4 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">FAQ'S</a>
+            </li>
+            <li class="li_5 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">CONTACT</a>
+            </li>
+            <li class="li_6 px-4 py-2">
+              <a href="#" class="md:text-xs lg:text-base font-oswald">ABOUT US</a>
+            </li>
+            <div class="animation start-home"></div>
+            <button id="reg_log_btn" class="md:text-xs lg:text-base border border-solid border-white text-white font-oswald duration-500 lg:px-4 md:px-3 py-2 mx-4 my-3 rounded-3xl">
+              Register / Sign In
+            </button>
+            <select id="select" class="form-select block w-fit md:px-1 px-3 py-1.5
+              md:text-xs lg:text-base text-white font-oswald bg-clip-padding
+              bg-no-repeat transition ease-in-out outline-none
+              m-0" style="background-color: transparent;">
+              <option value="1" class="md:text-xs lg:text-base" style="color: #202020;">English</option>
+              <option value="2" class="md:text-xs lg:text-base" style="color: #202020;">Hindi</option>
+              <option value="3" class="md:text-xs lg:text-base" style="color: #202020;">Marathi</option>
+              <option value="4" class="md:text-xs lg:text-base" style="color: #202020;">Gujrati</option>
+            </select>
+          </ul>
+
+          <!--search icon for medium screen-->
+            <svg id="search_icon_md" xmlns="http://www.w3.org/2000/svg" class="text-white cursor-pointer flex justify-between items-center h-7 w-7 p-1 transition-all ease-in-out duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+
+          <!--search box for large screen-->
+            <div id="searchBox_lg" class="w-1/6">
+                <div class="w-full flex justify-between items-center">
+                    <svg id="search_icon_lg" class="absolute w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #004e64;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input id="search_input_lg" type="text" class="md:text-xs lg:text-base form-control font-montserrat w-full rounded pl-7 pr-1.5 py-1.5 border border-solid border-white bg-transparent outline-none focus:bg-slate-200"
+                         placeholder="Search here..."/>
+                </div>
+            </div>
+        </nav><!--main navigation over-->
+
+        <!--Dropdown menu-->
+        <ul id="drop_menu" class="bg-slate-100 fixed w-1/2 py-4 pl-6 transition-all ease-in-out duration-500" style="color: #202020;">
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">SIGN IN</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">SERVICES</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">STEPS</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">CAMPS</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">FAQ'S</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">CONTACT</a>
+          </li>
+          <li class="px-4 py-3">
+            <a href="#" class="text-xs font-oswald">ABOUT US</a>
+          </li>
+          <select id="select" class="form-select block mx-4 my-4 text-xs
+                font-oswald bg-white bg-clip-padding bg-no-repeat outline-none
+                transition ease-in-out" style="background-color: transparent; color: #202020;">
+                <option value="1">English</option>
+                <option value="2">Hindi</option>
+                <option value="3">Marathi</option>
+                <option value="4">Gujrati</option>
+          </select>
+        </ul>
+
+        <!--Dropdown search box-->
+        <div id="drop_search" class="fixed px-2 py-3 bg-transparent transition-all ease-in-out duration-500">
+          <div class="w-full flex justify-between items-center border border-solid border-slate-200 rounded">
+              <svg id="inputBox_searchIcon" class="absolute w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #004e64;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input type="text" id="drop_searchBox" class="form-control w-full font-montserrat pl-7 pr-1.5 py-1 md:text-sm lg:text-base bg-slate-200
+                border border-solid rounded outline-none"
+                placeholder="Search here..." style="color: #202020; border-color: #004e64;"/>
+          </div>
+      </div>
+      
+        <script>
+          //for menu
+          const toggle = document.getElementById('menu_icon');
+          const sidebar = document.getElementById('drop_menu');
+          const cross = document.getElementById('cross_icon');
+          const line = document.getElementById('line_icon');
+          //for search
+          const search = document.getElementById('search_icon_md');
+          const search1 = document.getElementById('search_icon_sm');
+          const searchBar = document.getElementById('drop_search');
+          const searchBox = document.getElementById('drop_searchBox');
+          //if click outside it will close autometically
+          document.onclick = function(e){
+            if (e.target.id !== 'menu_icon' && e.target.id !== 'drop_menu' && e.target.id !== 'select') {
+              sidebar.classList.remove('active');
+              cross.classList.remove('active');
+              line.classList.remove('deactive');
+            }
+            if (e.target.id !== 'search_icon_md' && e.target.id !== 'search_icon_sm' && e.target.id !== 'inputBox_searchIcon' && e.target.id !== 'drop_searchBox') {
+              searchBar.classList.remove('active');
+              search.classList.remove('active');
+              search1.classList.remove('active');
+            }
+          }
+          //toggle menu 
+          toggle.onclick = function() {
+            sidebar.classList.toggle('active');
+            cross.classList.toggle('active');
+            line.classList.toggle('deactive');
+          }
+          //toggle search box
+          search.onclick = function() {
+            searchBar.classList.toggle('active');
+            search.classList.toggle('active');
+          }
+          search1.onclick = function() {
+            searchBar.classList.toggle('active');
+            search1.classList.toggle('active');
+          }
+        </script>
+    </body>
+</html>

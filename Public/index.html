@@ -1,132 +1,93 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    #sub-btn {background-color:#05386B; color:#FFEEED;}
-    #sub-btn:hover {background-color:#5CDB95; color:#05386B;}
-  </style>
-  <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-  <footer class="text-center lg:text-left bg-gray-100">
-    <div class="mx-6 py-10 text-center md:text-left">
-      <div class="grid grid-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-        <div class="">
-          <h6 class="uppercase font-poppins font-semibold mb-4 flex items-center justify-center md:justify-start" style="color:#202020">
-            Relief Camp
-          </h6>
-          <p class="font-merriweather" style="color:#535353">
-            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor
-            sit amet, consectetur adipisicing elit.
-          </p>
-        </div>
-        <div class="">
-          <h6 class="uppercase font-semibold font-poppins mb-4 flex justify-center md:justify-start" style="color:#202020">
-            services
-          </h6>
-          <p class="mb-4 font-merriweather" style="color:#535353">
-            <a href="#!">Service 1</a>
-          </p>
-          <p class="mb-4 font-merriweather" style="color:#535353">
-            <a href="#!">Service 2</a>
-          </p>
-          <p class="mb-4 font-merriweather" style="color:#535353">
-            <a href="#!">Service 3</a>
-          </p>
-          <p class="font-merriweather" style="color:#535353">
-            <a href="#!">Service 4</a>
-          </p>
-        </div>
-        <div class="">
-          <form action="">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #sub-btn {background-color:#004e64; color:#FFFFFF;}
+      #sub-btn:hover {background-color:#00a5cf; color:#05386B;}
+      #sub-btn:focus {background-color:#004e64; color:#FFFFFF;}
+      @media (max-width: 639px) {
+        #main {padding-top: 20px; padding-bottom: 10px;}
+        #grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; grid-auto-rows: minmax(100px, auto);}
+        #one {grid-column: 1 / 3; grid-row: 1;}
+        #two1 {grid-column: 1; grid-row: 2;}
+        #two2 {grid-column: 2; grid-row: 2;}
+        #three {grid-column: 1/3; grid-row: 3;}
+      }
+    </style>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <footer class="lg:text-left bg-gray-50 cursor-default">
+      <div id="main" class="mx-6 py-10 sm:text-left">
+        <div id="grid" class="grid lg:grid-cols-4 sm:grid-cols-2 gap-10">
+          <div id="one">
+            <h6 class="uppercase font-oswald font-medium mb-4" style="color:#202020">
+              Relief Camp
+            </h6>
+            <p class="font-montserrat" style="color:#202020">
+              Relief camp is website in which people can see nearest camps
+              at time of emergencies and natural disasters. also people can do
+              activities like register camps and donate food, medicines and other
+              necessary supplies through this website.
+            </p>
+          </div>
+          <div id="two1">
+            <h6 class="uppercase font-medium font-oswald mb-4" style="color:#202020">
+              Website
+            </h6>
+            <p class="mb-3 font-montserrat" style="color:#202020">
+              <a href="#!">Help</a>
+            </p>
+            <p class="mb-3 font-montserrat" style="color:#202020">
+              <a href="#!">About Us</a>
+            </p>
+            <p class="mb-3 font-montserrat" style="color:#202020">
+              <a href="#!">Terms & Conditions</a>
+            </p>
+          </div>
+          <div id="two2">
+            <h6 class="uppercase font-medium font-oswald mb-4" style="color: #202020;">
+              Quick links
+            </h6>
+            <p class="mb-3 font-montserrat"  style="color: #202020;">
+              <a href="#!">Sign In</a>
+            </p>
+            <p class="mb-3 font-montserrat"  style="color: #202020;">
+              <a href="#!">Camps</a>
+            </p>
+            <p class="mb-3 font-montserrat"  style="color: #202020;">
+              <a href="#!">Contact Us</a>
+            </p>
+          </div>
+          <div id="three">
+            <form action="">
               <div class="md:ml-auto md:mb-6">
-                <h6 class="uppercase font-semibold font-poppins mb-4 flex justify-center md:justify-start" style="color:#202020">
-                  Sign up for our newsletter
+                <h6 class="uppercase font-medium font-oswald mb-4" style="color:#202020">
+                  Sign up to get updates
                 </h6>
               </div>
-              <div class="md:mb-6">
-                <input
-                  type="text"
-                  class="
-                    form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-merriweather
-                    bg-white
-                    border border-solid border-gray-300
-                    rounded
-                    transition ease-in-out
-                    m-0
+              <div class="relative" style="color:#202020;">
+                 <input type="text" class="form-control block w-full px-3 py-1.5 text-sm
+                  bg-gray-100 border border-solid border-gray-400
+                    rounded transition ease-in-out m-0 font-montserrat
                     focus:text-body focus:bg-white"
-                  id="exampleFormControlInput1"
-                  placeholder="Email address" style="color:#535353"/>
-              </div>
-              <div class="md:mr-auto mb-6 mt-6">
-                <button type="button" id="sub-btn" class="inline-block px-8 py-2 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg transition duration-150 ease-in-out font-poppins">Subscribe</button>
+                    id="exampleFormControlInput1"
+                    placeholder="Email address" style="color:#202020"/>
+                 <button id="sub-btn" class="absolute inset-y-0 right-0 rounded-r flex items-center px-4 font-bold text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg></button>
               </div>
             </div>
           </form>
+        </div>
       </div>
-    </div>
-    <div class="grid lg:grid-cols-3 md:grid-cols-3 p-2 gap-10 md:text-left bg-gray-400">
-      <div class="pt-3 font-merriweather" style="color:#202020">©2022 ReliefCamp</div>
-      <div class="pt-3 font-merriweather" style="color:#202020">Terms & Conditions</div>
-      <div class="">  
-              <a href="#!" type="button" class="rounded-full border-2 leading-normal uppercase hover:bg-gray-100 hover:bg-opacity-60 transition duration-150 ease-in-out w-9 h-9 m-1" style="color:#202020; border-color:#202020;">
-                <svg aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                data-icon="facebook-f"
-                class="w-2 h-full mx-auto"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512">
-                <path
-                  fill="currentColor"
-                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                ></path>
-                </svg>
-              </a>
-              <a href="#!" type="button" class="rounded-full border-2 border-title leading-normal uppercase hover:bg-gray-100 hover:bg-opacity-60 transition duration-150 ease-in-out w-9 h-9 m-1" style="color:#202020; border-color:#202020;">
-                <svg aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                  data-icon="twitter"
-                  class="w-3 h-full mx-auto"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512">
-                  <path
-                    fill="currentColor"
-                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                  ></path>
-                </svg>
-              </a>
-              <a href="#!" type="button" class="rounded-full border-2 border-title leading-normal uppercase hover:bg-gray-100 hover:bg-opacity-60 transition duration-150 ease-in-out w-9 h-9 m-1" style="color:#202020; border-color:#202020;">
-                <svg aria-hidden="true"
-                focusable="false"
-                data-prefix="fab"
-                  data-icon="google"
-                  class="w-3 h-full mx-auto"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 488 512">
-                  <path
-                    fill="currentColor"
-                    d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </footer> 
+      <div class="text-center p-3" style="background-color: #004e64;">
+        <span class="text-white font-oswald">© 2022 Copyright:</span>
+        <a class="text-white font-montserrat" href="">Relief Camp</a>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>

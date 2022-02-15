@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      poppins: ['Poppins'],
-      merriweather: ['Merriweather']
+      oswald: ['Oswald'],
+      montserrat: ['Montserrat'],
     }
   },
   plugins: [],
