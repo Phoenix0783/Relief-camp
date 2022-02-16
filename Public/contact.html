@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #send-btn {background-color: #004e64; color:#FFFFFF;}
+      #send-btn:hover {background-color:#00a5cf; color:#004e64;}
+    </style>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+  </head>
+  <body>
+    <section class="grid grid-cols-1" x-data="getData()">
+      <!--conatainer starts-->
+      <div class="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center" x-show.transition="!status && !isError">
+        <div class="px-6 py-8 rounded w-full">
+          <h3 class="text-3xl font-oswald text-center" style="color: #202020; margin-bottom: 1rem;">Contact Us</h3>
+          <div class="relative mx-auto flex justify-between items-center w-fit" style="margin-bottom: 2rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            <h6 class="font-oswald" style="color: #202020; margin-left: 1.5rem">: reliefcamp@helper.com</h6>
+          </div>
+          <!--form starts-->
+          <form action="" method="POST" class="" @submit.prevent="submitData">
+            <div class="">
+              <!--name feild div-->
+              <div>
+                <span class="uppercase text-sm font-oswald font-medium" style="color: #202020;">Full Name</span>
+                <input class="mt-2 block border font-montserrat border-gray-400 w-full p-3 rounded mb-4"
+                    type="text" placeholder="Your Name">
+              </div>
+              <!--email feild div-->
+              <div class="mt-8">
+                <span class="uppercase text-sm font-oswald font-medium" style="color: #202020;">Email</span>
+                <input class="mt-2 block border font-montserrat border-gray-400 w-full p-3 rounded mb-4"
+                    type="text" x-model="formData.email" placeholder="john.xyx@example.com">
+                  <!--Email validation-->
+                  <div x-show="formData.email.length > 0" class="flex items-center mb-4">
+                    <div :class="{'bg-green-200 text-green-700': isEmail(formData.email),
+                                   'bg-red-200 text-red-700': !isEmail(formData.email)}"
+                                   class=" rounded-full fill-current mt-2" style="padding: 2px;">
+                      <!--alert icon-->
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          x-show="isEmail(formData.email)"
+                          stroke-linecap="round" stroke-linejoin="round" 
+                          stroke-width="2" d="M5 13l4 4L19 7" />
+                        <path
+                          x-show="!isEmail(formData.email)"
+                          stroke-linecap="round" stroke-linejoin="round" 
+                          stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <!--alert msg-->
+                    <span :class="{'text-green-700': isEmail(formData.email), 
+                                       'text-red-700': !isEmail(formData.email)}"
+                                       class="font-medium text-sm ml-3 mt-2"
+                                       x-text="isEmail(formData.email) ? 
+                                       'Email is valid' : 'Invalid Email format!' "></span>
+                  </div>
+                </div>
+                <!--message feild div-->
+                <div class="mt-8">
+                  <span class="uppercase text-sm font-oswald font-medium" style="color: #202020;">Message</span>
+                    <textarea class="mt-2 h-28 block border font-merriweather border-gray-400 w-full p-3 rounded mb-4" placeholder="Type your message here..."></textarea>
+                </div>
+                <!--send button div-->
+                <div class="mt-9">
+                  <button id="send-btn" class="text-lg font-oswald text-white mt-3 py-2 px-6 rounded">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </section>
+    <!--script to include alpine for reactive validation-->
+    <script 
+        src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer>
+    </script>
+    <!--script for taking data from form-->
+    <script>
+        function getData() {
+            return {
+                formData: {
+                    email: "",
+                },
+                status: false,
+                loading: false,
+                isError: false,
+                isEmail(email) {
+                var re = /\S+@\S+\.\S+/;
+                return re.test(email);
+                },
+            }
+        }
+    </script>
+  </body>
+</html>

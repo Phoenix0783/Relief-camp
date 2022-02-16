@@ -6,13 +6,13 @@
         <link href="css/style.css" rel="stylesheet">
         <style>
 
-          #drop_menu {right: -400px;} /*dropdown menu*/
+          #drop_menu {right: -25rem;} /*dropdown menu*/
           #drop_menu.active {right: 0px;}
           #cross_icon {display: none;} /*close icon for dropdown menu*/
           #cross_icon.active {display: block;}
           #line_icon {display: block;} /*lined icon for dropdown menu*/
           #line_icon.deactive {display: none;}
-          #drop_search {z-index: -10; top: -200px;  left: 50%; transform: translate(-50%, 0);} /*dropdown search setting z-index behind*/
+          #drop_search {z-index: -10; top: -12.5rem;  left: 50%; transform: translate(-50%, 0);} /*dropdown search setting z-index behind*/
           #search_icon_sm.active {border: solid; border-color: white; color: #004e64; border-radius: 100%; background-color: white;}
           #search_icon_md.active {border: solid; border-color: white; color: #004e64; border-radius: 100%; background-color: white;} /*setting round icon when clicked*/
           #reg_log_btn:hover {background-color: #067999ec;}
@@ -20,17 +20,17 @@
           @media (max-width: 767px) {
             #drop_search.active {
               z-index: 0;  /*transtion for drop down search settion zindex to originl*/
-              top: 52px;
+              top: 3.25rem;
             }
           }
           @media (max-width: 1023px) {
             @media (min-width: 768px) {
-              #drop_search.active {z-index: 0; top: 58px;}
+              #drop_search.active {z-index: 0; top: 3.625rem;}
             }  /*transtion for drop down search settion zindex to originl*/
           }
           @media (max-width: 1094px) {
             @media (min-width: 1024px) {
-              #drop_search.active {z-index: 0; top: 66px;}
+              #drop_search.active {z-index: 0; top: 4.125rem;}
             }  /*transtion for drop down search settion zindex to originl*/
           }
           @media (max-width: 767px) {
@@ -55,7 +55,7 @@
               #searchBox_lg {display: none;}    /*hide large search for very small screens*/
             }
             @media (min-width: 1095px) {
-              #searchBox_lg {display: block; margin-top: 13px;}
+              #searchBox_lg {display: block; margin-top: 0.813rem;}
               #drop_search {display: none;}
               #drop_search.active {     /*show large search box in large screens*/
                 display: none;}      /*hide dropdown search in large screens*/
@@ -72,63 +72,63 @@
             }
             @media (max-width: 1094px) {
               @media (min-width: 1024px) {
-                #search_icon_md {margin-top: 18px;}
+                #search_icon_md {margin-top: 1.125rem;}
               }
             }
             @media (max-width: 1023px) {
               @media (min-width: 768px) {
-                #search_icon_md {margin-top: 15px;}
+                #search_icon_md {margin-top: 0.938rem;}
               }
             }
             @media (max-width: 767px){
-              nav {padding-top: 10px; padding-bottom: 10px;}
+              nav {padding-top: 0.625rem; padding-bottom: 0.625rem;}
             }
             #search_input_lg:focus {color: #202020;}
             #nav_item .animation { /*underline hover effect in navigation*/
               position: absolute;
-              height: 4px;
-              top: 62px;
+              height: 0.25rem;
+              top: 3.875rem;
               background-color: white;
               transition: all ease-in-out 500ms;
             }
             #nav_item .li_1:hover~.animation {
-              width: 88.77px; margin-left: 0px;
+              width: 5.548rem; margin-left: 0px;
             }
             #nav_item .li_2:hover~.animation {
-              width: 67.94px; margin-left: 88.77px;
+              width: 4.246rem; margin-left: 5.548rem;
             }
             #nav_item .li_3:hover~.animation {
-              width: 73.92px; margin-left: 156.71px;
+              width: 4.62rem; margin-left: 9.794rem;
             }
             #nav_item .li_4:hover~.animation {
-              width: 64.08px; margin-left: 230.63px;
+              width: 4rem; margin-left: 14.414rem;
             }
             #nav_item .li_5:hover~.animation {
-              width: 86.55px; margin-left: 294.71px;
+              width: 5.409rem; margin-left: 18.419rem;
             }
             #nav_item .li_6:hover~.animation {
-              width: 92.11px; margin-left: 381.26px;
+              width: 5.757rem; margin-left: 23.829rem;
             }
             @media (max-width: 1023px) {
               @media (min-width: 768px) {
-                #nav_item .animation {top: 54px;}
+                #nav_item .animation {top: 3.375rem;}
                 #nav_item .li_1:hover~.animation {
-                  width: 74.58px; margin-left: 0px;
+                  width: 4.661rem; margin-left: 0px;
                 }
                 #nav_item .li_2:hover~.animation {
-                  width: 58.95px; margin-left: 74.58px;
+                  width: 3.684rem; margin-left: 4.661rem;
                 }
                 #nav_item .li_3:hover~.animation {
-                  width: 63.45px; margin-left: 133.53px;
+                  width: 3.966rem; margin-left: 8.348rem;
                 }
                 #nav_item .li_4:hover~.animation {
-                  width: 56.06px; margin-left: 196.98px;
+                  width: 3.316rem; margin-left: 12.311rem;
                 }
                 #nav_item .li_5:hover~.animation {
-                  width: 72.92px; margin-left: 253.04px;
+                  width: 4.558rem; margin-left: 15.815rem;
                 }
                 #nav_item .li_6:hover~.animation {
-                  width: 77.08px; margin-left: 325.96px;
+                  width: 4.818rem; margin-left: 20.373rem;
                 }
               }
             }
@@ -212,27 +212,27 @@
         <!--Dropdown menu-->
         <ul id="drop_menu" class="bg-slate-100 fixed w-1/2 py-4 pl-6 transition-all ease-in-out duration-500" style="color: #202020;">
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">SIGN IN</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">SIGN IN</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">SERVICES</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">SERVICES</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">STEPS</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">STEPS</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">CAMPS</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">CAMPS</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">FAQ'S</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">FAQ'S</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">CONTACT</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">CONTACT</a>
           </li>
           <li class="px-4 py-3">
-            <a href="#" class="text-xs font-oswald">ABOUT US</a>
+            <a href="#" class="text-sm sm:text-base font-oswald">ABOUT US</a>
           </li>
-          <select id="select" class="form-select block mx-4 my-4 text-xs
+          <select id="select" class="form-select block mx-4 my-4 text-sm sm:text-base
                 font-oswald bg-white bg-clip-padding bg-no-repeat outline-none
                 transition ease-in-out" style="background-color: transparent; color: #202020;">
                 <option value="1">English</option>
